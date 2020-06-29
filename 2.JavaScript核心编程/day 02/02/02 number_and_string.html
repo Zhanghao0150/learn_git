@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值和字符串</title>
+</head>
+
+<body>
+    <script>
+        //字符串 +数字 =新的字符串
+        var a = 'zhanghao' + 520;
+        alert(a);
+        alert(typeof(a));
+
+        //字符串+字符串 等 新的字符串
+        var b = '18' + '40';
+        alert(b);
+        alert(typeof(b));
+
+        //隐式转换 数值转换成字符串
+        var num = 234;
+        var myStr = num + "";
+        alert(typeof(myStr));
+
+        //字符串转数字
+        var myNum = Number(num);
+        alert(typeof(myNum));
+
+        //数值转字符串
+
+        var myStr2 = num.toString();
+
+        //报错
+        var n = '2424fhfh';
+        var a = Number(n);
+        alert(typeof(a)); //NaN 报错
+    </script>
+</body>
+
+</html>
