@@ -1,0 +1,91 @@
+body {
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+}
+
+
+/* 小米顶部start */
+
+.topBar {
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+}
+
+.container {
+    width: 1226px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.topBar .topBar_list {
+    float: left;
+}
+
+.topBar .shop {
+    float: right;
+    margin-left: 15px;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #424242;
+}
+
+.topBar .login {
+    float: right;
+}
+
+.topBar a {
+    color: #b0b0b0;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 40px;
+}
+
+.topBar .shop a {
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+}
+
+.topBar a:hover {
+    color: white;
+}
+
+.topBar span {
+    color: #424242;
+    margin: 0 .5em;
+}
+
+
+/* 小米顶部end */
+
+
+/*小米导航栏start */
+
+.header {
+    float: left;
+    padding-left: 12px;
+    padding-top: 30px;
+    width: 1130px;
+}
+
+.site-logo {
+    float: left;
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+}
+
+.site-logo a {
+    display: inline-block;
+    background: url("../images/mi-logo.png") no-repeat;
+    margin: 3px 3px;
+    opacity: 1;
+}
+
+
+/**/
+
+小米导航栏end
