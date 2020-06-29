@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度登录界面</title>
+    <link rel="stylesheet" type="text/css" href="css/forms.css">
+
+</head>
+
+<body>
+    <div class="form">
+        <form>
+            <p class="p-form-logo">用户名登录</p>
+            <p class="p-userErro p-passErro"></p>
+            <div class="div-form-userName">
+                <input id="inputU" type="text" class="text-userName" placeholder="账号/手机" />
+            </div>
+            <div class="div-form-passWord">
+                <input id="inputP" type="password" class="text-passWord" placeholder="密码" />
+            </div>
+            <div class="div-checkbox">
+                <input type="checkbox" />
+                <a href="javascript:document.querySelector('.div-checkbox input').click();">下次自动登录</a>
+            </div>
+            <div>
+                <input type="submit" value="登录" class="button-submit" />
+            </div>
+            <div class="div-tip01">
+                <a href="#">忘记密码?</a>
+            </div>
+        </form>
+        <div class="div-footerBar">
+            <div class="footerBar1">
+                <a href="#">扫码登录</a>
+            </div>
+            <div class="footerBar2">
+                <a href="#">立即注册</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
