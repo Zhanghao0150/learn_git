@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组Array</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var shopping = ['香蕉', '苹果', '牛奶', '红牛'];
+        // alert(shopping);
+        // alert(typeof shopping);
+        console.log(shopping);
+
+        var rand = ['tree', '345', [1, 2, 3]];
+        console.log(rand);
+
+        //访问
+        var item1 = rand[0];
+        console.log(item1);
+        //赋值
+        rand[0] = '榴莲';
+        console.log(rand);
+        var a = rand[2][2];
+        console.log(a);
+        //访问数组的长度 for要用到
+        console.log('数组的长度是：' + rand.length);
+    </script>
+
+</body>
+
+</html>
