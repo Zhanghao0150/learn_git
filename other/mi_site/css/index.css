@@ -100,6 +100,19 @@ body {
     float: left;
 }
 
+.header .site-list ul li.site-category {
+    position: relative;
+}
+
+.header .site-list ul li.site-category .category-list {
+    position: absolute;
+    top: 88px;
+    left: -84px;
+    width: 234px;
+    height: 460px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 .header .site-list ul li a {
     display: block;
     padding: 26px 10px 38px;
@@ -168,3 +181,18 @@ body {
 
 
 /*小米导航栏end*/
+
+
+/*主页内容start*/
+
+.site-content a {
+    display: inline-block;
+    width: 1226px;
+}
+
+.site-content a img {
+    width: 1226px;
+}
+
+
+/*主页内容end*/
