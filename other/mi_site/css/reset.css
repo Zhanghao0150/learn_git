@@ -16,6 +16,7 @@ ol {
 input {
     border: none;
     outline: none;
+    background-color: white;
 }
 
 a {
