@@ -25,7 +25,7 @@
         console.log(fn[5](), '对for循环的错误理解'); //10
         console.log(fn[7](), '对for循环的错误理解'); //10
         fn = null;
-        //解决方法 1 把i这个变量封装成私有属性n，放进变量里面存储，这样保证每个函数内都有一个私有属性。
+        //解决方法：使用闭包解决循环中的变量问题，相当于把变量保存在内存中，每次执行的时候从内存中获取。
         function fn2() {
             var arr = new Array();
             for (var i = 0; i < 10; i++) {
@@ -54,7 +54,7 @@
         console.log(bar[7]()); //7
         bar = null;
 
-        //解决方法 使用let来声明for循环变量i
+        //解决方法：let 块级作用域
         function fn3() {
             var arr = new Array();
             for (let i = 0; i < 10; i++) {
