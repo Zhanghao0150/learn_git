@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 闭包的场景二</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //6 getter 和setter 通过闭包，来封装公共方法的变量。防止将方法的变量暴露在外部
+        var getValue, setValue;
+        !(function() {
+            var num = 0;
+            getValue = function() {
+                return num;
+            }
+            setValue = function(v) {
+                if (typeof v === 'number') {
+                    num = v;
+                }
+            }
+        })();
+        console.log(getValue());
+        setValue(10);
+        console.log(getValue());
+        //7 迭代器 计数器
+        var add = function() {
+            var num = 0;
+            return function() {
+                return ++num;
+            }
+        }();
+        console.log(add());
+        console.log(add());
+        //['alex','mjj','阿黄']
+        function setUp(arr) {
+            var i = 0;
+            return function() {
+                return arr[i++];
+            }
+        }
+        var next = setUp(['alex', 'mjj', '阿黄']);
+        console.log(next());
+        console.log(next());
+        console.log(next());
+        //8 区分首次
+        var firstLoad = (function() {
+            var list = [];
+            return function(id) {
+                if (list.indexOf(id) >= 0) {
+                    return false;
+                } else {
+                    //首次调用
+                    list.push(id);
+                    return true;
+                }
+            }
+        })();
+        console.log(firstLoad(10)); //true
+        console.log(firstLoad(10)); //false
+        console.log(firstLoad(20)); //true
+        console.log(firstLoad(30)); //true
+        console.log(firstLoad(30)); //false
+        console.log(firstLoad(40)); //true
+        //9 缓存机制
+        //10 img对象图片上报
+    </script>
+</body>
+
+</html>
