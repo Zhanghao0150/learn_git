@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入vue -->
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <h3>{{msg}}</h3>
+        <h3>{{stus[0].name}}</h3>
+        <button @click="stus[0].name = 'Tom'">改变</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: '',
+                stus: [{
+                    name: 'jack'
+                }]
+            },
+            // 将来可以学到 监听路由地址的变化
+            watch: {
+                //key是属于data对象的属性名 value：监事后的行为 newV ：新值 oldV：旧值
+                'msg': function(newV, oldV) {
+                    /*  console.log(newV, oldV); */
+                    if (newV === '100') {
+                        console.log('hello');
+                    }
+                },
+                /* 深度监视： Object | Array */
+                'stus': {
+                    deep: 'true',
+                    handler: function(newV, oldV) {
+                        console.log(newV[0].name);
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
