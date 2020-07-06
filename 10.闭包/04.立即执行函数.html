@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 立刻执行函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //IIFE ()他是一个表达式 跟着函数后面，表示调用函数 fn();
+        //立即执行函数:定义函数之后，立即调用改函数，这种函数叫做立即执行函数
+        //注意：如果function 初学在行首 一律 解释称 函数声明语句
+        //简称：自执行函数
+        //常用的2种写法
+        //每次写立即执行函数的时候，需要加分号，不然解释器可能看不懂我们写的代码
+        (function() {
+
+        })();
+        (function() {
+
+        }());
+
+        //通常情况下，写自执行函数的时候，写下面的不会出现忘写分号的错误
+        !(function() {
+
+        })()
+    </script>
+
+</body>
+
+</html>

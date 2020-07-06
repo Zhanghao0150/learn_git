@@ -1,0 +1,37 @@
+{
+  "id": "1917459",
+  "name": "mi_site",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "689272",
+      "name": "企业 工厂 建筑",
+      "font_class": "qiyegongchangjianzhu",
+      "unicode": "e802",
+      "unicode_decimal": 59394
+    },
+    {
+      "icon_id": "765354",
+      "name": "购物车",
+      "font_class": "shouye",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "7148955",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "8348144",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    }
+  ]
+}

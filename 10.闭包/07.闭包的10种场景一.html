@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 闭包的10种表示方式</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //1返回值 最常见的一种形式
+        /*         var fn = function() {
+                    var name = 'mjj';
+                    return function() {
+                        return name;
+                    }
+                }
+                var fnc = fn();
+                console.log(fnc()); */
+        //2函数赋值 一种变形的形式是将内部函数赋值给一个外部的变量
+        /*         var fn2;
+                var fn = function() {
+                    var name = 'mjj';
+                    var a = function() {
+                        return name;
+                    }
+                    fn2 = a;
+                }
+                fn();
+                console.log(fn2()); */
+        //3函数参数 把函数当做一个参数传递到函数当中
+        function fn2(f) {
+            console.log(f());
+        }
+
+        function fn() {
+            var name = 'mjj';
+            var a = function() {
+                return name;
+            }
+            fn2(a);
+        }
+        fn();
+
+        //4IIFE
+        function fn3(f) {
+            console.log(f());
+        }
+
+        !(function() {
+            var name = 'mjj';
+            var a = function() {
+                return name;
+            }
+            fn3(a);
+        })();
+        //5循环赋值
+        function foo() {
+            var arr = [];
+            for (var i = 0; i < 10; i++) {
+                //IIFE
+                /*                 (function(n) {
+                                    arr[n] = function() {
+                                        return n;
+                                    }
+                                })(i); */
+                //闭包写法
+                arr[i] = (function(n) {
+                    return function() {
+                        return n;
+                    }
+                })(i);
+            }
+            return arr;
+        }
+        var bar = foo();
+        console.log(bar);
+        console.log(bar[1]());
+        console.log(bar[2]());
+        bar = null;
+        //6 getter 和setter
+        //7 迭代器
+        //8 区分首次
+        //9 缓存机制
+        //10 img对象图片上报
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 对循环和闭包的错误理解</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        //需求：封装一个数组，10个成员，类型全是函数，要求数组用函数返回，且使用for循环给数组进行赋值，第一个函数返回0，第二个函数返回2，以此类推
+        //下面是对for循环的错误理解
+        function fn1() {
+            var arr = new Array();
+            for (var i = 0; i < 10; i++) {
+                arr[i] = function() {
+                    return i;
+                }
+            }
+            return arr;
+        }
+        var fn = fn1();
+        console.log(fn[0](), '对for循环的错误理解'); //10
+        console.log(fn[5](), '对for循环的错误理解'); //10
+        console.log(fn[7](), '对for循环的错误理解'); //10
+        fn = null;
+        //解决方法：使用闭包解决循环中的变量问题，相当于把变量保存在内存中，每次执行的时候从内存中获取。
+        function fn2() {
+            var arr = new Array();
+            for (var i = 0; i < 10; i++) {
+                //闭包写法
+                /*   
+                arr[i] = (function(n) {
+                    return function() {
+                        return n;
+                    }
+                }(i)); */
+
+                //立即执行函数写法
+                (function(n) {
+                    arr[n] = function() {
+                        return n;
+                    }
+                }(i));
+
+            }
+            return arr;
+        }
+        var bar = fn2();
+        console.log(bar[0]()); //0
+        console.log(bar[1]()); //1
+        console.log(bar[5]()); //5
+        console.log(bar[7]()); //7
+        bar = null;
+
+        //解决方法：let 块级作用域
+        function fn3() {
+            var arr = new Array();
+            for (let i = 0; i < 10; i++) {
+                arr[i] = function() {
+                    return i;
+                }
+            }
+            return arr;
+        }
+        var letFn = fn3();
+        console.log(letFn[1]()); //1
+        console.log(letFn[2]()); //2
+        console.log(letFn[3]()); //3
+        console.log(letFn[4]()); //4
+        letFn = null;
+    </script>
+
+
+</body>
+
+</html>
