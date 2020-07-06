@@ -48,7 +48,12 @@
                 v-eles   
             3，v-on:click 所有的js事件都可以绑定 @click 简写
             4，v-bind:xxx可以绑定属性 简写方式 :src :alt
-            5，v-for
+            5，v-for for循环的时候 一定绑定 key 直接绑定id
+            6，双向的数据绑定 语法糖 v-model 应用在表单控件中
+                v-model 它其实是一个v-on:input 和v-bind:value
+                提升：面试必备
+                  理解Vue MVVM响应式原理
+                如果想学好Vue，官方文档，至少三遍
         -->
         <h1 v-text="title"></h1>
         <div class="wrap" v-html='temp'></div>
@@ -67,6 +72,11 @@
                 </li>
             </ul>
         </div>
+        <!-- 双向绑定 -->
+        <div>
+            <input type="text" v-model="inputval">
+            <P>{{inputval}}</P>
+        </div>
     </div>
     <!-- 1,引入vue的包模块 -->
     <script src="js/vue.js"></script>
@@ -75,6 +85,7 @@
             el: '#app',
             data: {
                 msg: "测试",
+                inputval: "哈哈哈哈zxc",
                 currentIndex: 0,
                 title: "hello 指令",
                 temp: `            
