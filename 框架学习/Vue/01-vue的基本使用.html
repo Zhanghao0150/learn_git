@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px #333333 solid;
+            background-color: orange;
+            width: 80px;
+            height: 60px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .box2 {
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+        
+        div.active {
+            background-color: yellow;
+        }
+        
+        div.menus ul li h3 {
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        div.menus ul li h3.active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 差值表达式{{}} 渲染data中的数据  测试 -->
+        <h2>{{msg}}</h2>
+        <!-- 指令 v-xxx
+            1，渲染值 v-text v-html    
+            2，条件判断
+                v-if
+                v-else-if
+                v-eles   
+            3，v-on:click 所有的js事件都可以绑定 @click 简写
+            4，v-bind:xxx可以绑定属性 简写方式 :src :alt
+            5，v-for
+        -->
+        <h1 v-text="title"></h1>
+        <div class="wrap" v-html='temp'></div>
+        <button v-on:click="changShow" style="margin-bottom: 20px;">显示/隐藏</button>
+        <div class="box" v-if="isShow"></div>
+        <div class="box" v-show="isShow"></div>
+        <div v-if="obj">
+            <img v-bind:src="obj.imgSrc" :alt="obj.alt">
+        </div>
+        <div class="box2" :class="{active:isActive}" @click="handleClick"></div>
+        <div class="menus">
+            <ul>
+                <!-- 绑定key的目的是为了提高性能 -->
+                <li v-for="(item,i) in menus" :key='item.id'>
+                    <h3 :class="{active:i==currentIndex}" @click="clickHandle(i)">{{item.title}}</h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 1,引入vue的包模块 -->
+    <script src="js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: "测试",
+                currentIndex: 0,
+                title: "hello 指令",
+                temp: `            
+                <ol>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                </ol>`,
+                isShow: true,
+                isActive: false,
+                obj: {
+                    imgSrc: "images/1.jpg",
+                    alt: "皮卡丘"
+                },
+                menus: [{
+                    id: 1,
+                    title: 'html'
+                }, {
+                    id: 2,
+                    title: 'css'
+                }, {
+                    id: 3,
+                    title: 'javaScript'
+                }, {
+                    id: 4,
+                    title: 'Vue'
+                }]
+            },
+            methods: {
+                clickHandle: function(i) {
+                    this.currentIndex = i;
+                },
+                changShow: function() {
+                    this.isShow = !this.isShow
+                },
+                handleClick: function() {
+                    this.isActive = !this.isActive
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
