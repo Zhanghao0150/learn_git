@@ -43,7 +43,10 @@ nav,
 header {
     border: 1px #333 solid;
     text-align: center;
-    line-height: 100%;
+}
+
+.centent p {
+    display: inline-block;
 }
 
 
@@ -94,19 +97,27 @@ header 结构
 .header .container header .first .logo {
     float: left;
     margin-left: 10px;
-    width: 250px;
-    height: 118px;
+    width: 210px;
+    height: 78px;
+    padding: 20px 10px 20px 10px;
+    line-height: 78px;
 }
 
 .header .container header .first nav {
     float: left;
     width: 500px;
-    margin-left: 10px;
-    height: 118px;
+    margin-left: 90px;
+    height: 60px;
+    position: relative;
+    top: 30px;
+    line-height: 60px;
+    padding-left: 60px;
 }
 
 .header .container header .first .login {
+    top: 50px;
     float: right;
+    position: relative;
 }
 
 .header .container header .second {
@@ -124,10 +135,10 @@ wrap结构
         .comics{
 
         }
-        .redeme{
+        .centent .redeme{
 
         }
-        .contact{
+        .centent .contact{
 
         }
         .buy{
