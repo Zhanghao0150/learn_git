@@ -48,8 +48,21 @@ let vm = new Vue({
         async playMusic(id, index) {
             this.currentIndex = index;
             try {
-                const res = await axios.get('http://localhost:3000/song/url?id=' + id);
+                let res = await axios.get('http://localhost:3000/song/url?id=' + id);
                 const url = res.data.data[0].url;
+                //console.log(res);
+                if ('al' in this.musicList[index])
+                    this.musicPic = this.musicList[index].al.picUrl;
+                else {
+                    res = await axios.get('http://localhost:3000/song/detail?ids=' + id);
+                    //res.data.songs[0].al.picUrl;
+                    if ('songs' in res.data)
+                        this.musicPic = res.data.songs[0].al.picUrl;
+                }
+                res = await axios.get('http://localhost:3000/comment/hot?type=0&id=' + id);
+                if ('hotComments' in res.data)
+                    this.musciComments = res.data.hotComments;
+
                 if (this.musicUrl !== url)
                     this.musicUrl = url;
             } catch (error) {
@@ -58,8 +71,15 @@ let vm = new Vue({
 
         },
         // 搜索歌曲
-        seachMusic() {
-
+        async seachMusic() {
+            //http://localhost:3000/search?keywords=
+            try {
+                const res = await axios.get('http://localhost:3000/search?keywords=' + this.keywords);
+                this.musicList = res.data.result.songs;
+                //console.log(this.musicList)
+            } catch (error) {
+                console.log(error);
+            }
 
         },
         // 上一首
@@ -86,16 +106,40 @@ let vm = new Vue({
             }
         },
         // 音乐播放
-        play() {
+        async play() {
+            this.isplaying = true;
+            //this.$refs.audio.play();
+
 
         },
         // 音乐暂停
-        pause() {},
+        pause() {
+            this.isplaying = false;
+            this.$refs.audio.pause();
+        },
         // 播放mv
-        playMv(mvId) {},
+        async playMv(mvId) {
+            try {
+                if (mvId != 0) {
+                    //bug复现的情况，当一个没有mv的音乐正在播放时，直接点击另外一个音乐的播放mv的图标，会同时执行playMv 和playMusic 2个方法。
+                    //由于 playMusic方法内 赋予了audio新的musicurl时，因自动播放属性，会重新播放新地址的音乐，导致出现无法暂停新播放的音乐，解决思路：通过延迟一会暂停来解决
+                    //修复bug 延迟500毫秒后执行。
+                    setTimeout(() => {
+                        this.pause()
+                    }, 500);
+
+                    const res = await axios.get('http://localhost:3000/mv/url?id=' + mvId);
+                    this.mvUrl = res.data.data.url;
+                    this.isShow = true;
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
+        },
         // 点击遮罩层 隐藏mv
         hide() {
-
+            this.isShow = false;
         }
     }
 })
