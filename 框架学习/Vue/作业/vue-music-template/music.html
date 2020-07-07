@@ -32,7 +32,7 @@
                             <!-- 歌曲名字 -->
                             <b>{{item.name}}</b>
                             <!-- mv图标播放 -->
-                            <span v-if="item.mv!=0" @click='playMv(item.mv)'>
+                            <span v-if="getMvId(item)!=0" @click='playMv(getMvId(item))'>
 								<i></i>
 							</span>
                             <!---->
