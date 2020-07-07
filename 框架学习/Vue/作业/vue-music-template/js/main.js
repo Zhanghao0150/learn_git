@@ -140,6 +140,13 @@ let vm = new Vue({
         // 点击遮罩层 隐藏mv
         hide() {
             this.isShow = false;
+        },
+        getMvId(item) {
+            if ('mv' in item) {
+                if (item.mv != 0) return item.mv;
+            } else if ('mvid' in item)
+                if (item.mvid != 0) return item.mvid;
+            return 0
         }
     }
 })
