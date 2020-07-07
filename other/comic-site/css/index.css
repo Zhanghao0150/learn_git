@@ -1,0 +1,175 @@
+/*reset 开始 */
+
+body,
+p,
+ul,
+ol,
+dl,
+dt {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*reset 结束 */
+
+
+/* 公共样式开始 */
+
+.container {
+    width: 1427px;
+    margin: 0 auto;
+    border: 1px #333 solid;
+    /* border测试用*/
+}
+
+div,
+nav,
+header {
+    border: 1px #333 solid;
+    text-align: center;
+    line-height: 100%;
+}
+
+
+/* 公共样式结束 */
+
+
+/*
+header 结构
+.header{
+    .container{
+        header{
+            .first{
+                //第一个div 放logo，导航，注册登录的
+                .logo{
+                    img
+                }
+                nav{
+                    a 5个
+                }
+                .login{
+                    a 2个
+                    span 1个
+                }
+            }
+            .second{
+                轮播图组件
+            }
+        }
+    }
+}
+
+*/
+
+
+/* header开始 */
+
+.header {
+    width: 100%;
+    height: 600px;
+}
+
+.header .container header .first {
+    position: relative;
+    height: 120px;
+    margin-bottom: 50px;
+}
+
+.header .container header .first .logo {
+    float: left;
+    margin-left: 10px;
+    width: 250px;
+    height: 118px;
+}
+
+.header .container header .first nav {
+    float: left;
+    width: 500px;
+    margin-left: 10px;
+    height: 118px;
+}
+
+.header .container header .first .login {
+    float: right;
+}
+
+.header .container header .second {
+    height: 398px;
+}
+
+
+/* header结束 */
+
+
+/*
+wrap结构
+.wrap{
+    .container{
+        .comics{
+
+        }
+        .redeme{
+
+        }
+        .contact{
+
+        }
+        .buy{
+
+        }
+    }
+}
+*/
+
+
+/* wrap开始 */
+
+.wrap {
+    position: relative;
+    width: 100%;
+}
+
+.wrap .container {
+    width: 1024px;
+}
+
+.wrap .container * {
+    height: 818px;
+}
+
+
+/* wrap结束 */
+
+
+/*footer结构
+footer{
+    span2个
+}
+*/
+
+
+/* footer开始 */
+
+.footer {
+    width: 100%;
+    height: 100px;
+}
+
+
+/* footer结束 */
